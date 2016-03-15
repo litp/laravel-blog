@@ -11,6 +11,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserTableSeeder::class);
+        // Added TestTag1 to TestTag10
+        for ($i = 1; $i<11; $i++) {
+            $item = new App\Tag;
+            $item->tag_name = 'TestTag' . $i;
+            $item->save();
+        }
+
+        // Add TestCat1 to TestCat10
+        for ($i = 1; $i<11; $i++) {
+            $item = new App\Category;
+            $item->category_name = 'TestCat' . $i;
+            $item->save();
+        }
+
+        // Add TestPost1 to TestPost10
+        //
     }
 }
