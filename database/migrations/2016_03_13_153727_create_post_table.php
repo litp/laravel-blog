@@ -16,12 +16,19 @@ class CreatePostTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('html');
             $table->text('markdown');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('category_id')->references('id')->on('categorys')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->integer('post_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
         });
     }
 
