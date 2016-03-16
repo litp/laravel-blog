@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
 use App\Http\Requests;
 
 class PostController extends Controller
@@ -13,17 +14,19 @@ class PostController extends Controller
     	$this->middleware('auth');
     }
 
-    public function savePost()
+    public function index()
     {
-    	return view('posts.posts');
+    	$posts = Post::All();
+
+    	return view('posts.index', ['posts' => $posts]);
     }
 
-    public function showPost($user)
+    public function save($user)
     {
     	// 
     }
 
-    public function createPost()
+    public function create()
     {
     	//
     }
