@@ -15,7 +15,6 @@ class CreateCategoryMigration extends Migration
         Schema::create('categorys', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_name');
-            $table->integer('post_id')->unsigned();
         });
     }
 
