@@ -22,6 +22,13 @@ class PostController extends Controller
     	return view('posts.index', ['posts' => $posts]);
     }
 
+    public function create(Request $request)
+    {
+        $post = '';
+
+        //return view('')
+    }
+
     public function edit($slug)
     {
     	$post = Auth::user()->posts()->where('slug',$slug)->first();
@@ -29,8 +36,12 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $slug)
     {
-    	
+    	if ($request->isMethod('post')) {
+            $post = Auth::user()->posts()->where('slug', $slug)->first();
+
+
+        }
     }
 }

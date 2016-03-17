@@ -9,13 +9,31 @@
 
                 <div class="panel-body">
                     <form method="POST">
-                        <input type="text" name="title" value="{{ $post->title }}">
-                        <input type="text" name="slug" value="{{ $post->slug }}">
-                        <input type="text" name="category">
-                        <input type="text" name="tag">
-                        <input type="text" name="html" value="{{ $post->html }}">
-                        <input type="text" name="markdown" value="{{ $post->markdown }}">
-                        <input type="submit" value="Save Post">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" value="{{ $post->title }}" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input type="text" name="slug" id="slug" value="{{ $post->slug }}" class="form-control">
+                        </div>
+                            
+                            <input type="text" name="category">
+                            
+                            <input type="text" name="tag">
+
+                        <div class="form-group">
+                            <label for="html">HTML Content</label>
+                            <textarea name="html" id="html" class="form-control" rows="5">{{ $post->html }}</textarea>
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="markdown">Markdown Content</label>
+                            <textarea type="text" name="markdown" id="markdown" class="form-control" rows="5">{{ $post->markdown }}</textarea>
+                        </div>
+
+                            <button type="submit" class="btn btn-primary">Save Post</button>
                     </form>
                 </div>
             </div>
