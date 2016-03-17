@@ -34,7 +34,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
-    Route::get('/posts', function () {
-    	return view('posts.posts');
-	});
+    Route::get('/posts', 'PostController@index');
+    Route::get('/posts/edit/{slug}', 'PostController@edit');
 });

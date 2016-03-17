@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Post;
 use App\Http\Requests;
 
@@ -16,18 +17,20 @@ class PostController extends Controller
 
     public function index()
     {
-    	$posts = Post::All();
+    	$posts = Auth::user()->posts()->get();
 
     	return view('posts.index', ['posts' => $posts]);
     }
 
-    public function save($user)
+    public function edit($slug)
     {
-    	// 
+    	$post = Auth::user()->posts()->where('slug',$slug)->first();
+
+        return view('posts.edit', ['post' => $post]);
     }
 
-    public function create()
+    public function update(Request $request)
     {
-    	//
+    	
     }
 }

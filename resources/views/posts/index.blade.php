@@ -9,8 +9,12 @@
 
                 <div class="panel-body">
                     @foreach ($posts as $post)
-                    	<p>{{ $post->title }}</p>
+                    	<h3>{{ $post->title }}</h3>
                     	<br>
+                        {!! $post->html !!}
+                        <br>
+                        <a href="{{ url('/posts/edit/' . $post->slug) }}">Edit</a>
+                        <hr>
                     @endforeach
                 </div>
             </div>
